@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<head>
+	<title>Home</title>
+</head>
+<link th:rel="stylesheet" type="text/css" th:href="@{/css/miestilo.css} " />
+<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} " />
+
+<body class="bodyhome">
+	<div th:insert="layaouts/header :: header"></div>
+	<div class="containerhome">
+		<div class="form">
+		<img class="avatar"src="https://www.clipartkey.com/mpngs/m/195-1959560_dream-league-soccer-2017-logo-naruto.png">
+		
+		<h1>Registrarse aqui</h1>
+			<form id="formUsuario" method="post">
+					<label for="idusuario">Usuario</label>
+					<input type="text" id="idusuario" class="form-control">
+			
+					<label for="contraseña">Contraseña</label>
+					<input type="password" id="contraseña" class="form-control">
+					
+					<div>
+						<input type="submit" value="Ingresar">
+					</div>
+                <a href="#">¿Has perdido tu contraseña?</a><br>
+				<a href="#">¿No tienes una cuenta?</a>
+				
+		</form>
+		</div>
+				
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<br>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div th:insert="layaouts/footer :: footer"></div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"
+		src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script th:src="@{/webjars/popper.js/1.16.0/popper.min.js}" type="text/javascript"
+		src="webjars/popper.js/1.16.0/popper.min.js"></script>
+	<script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}" type="text/javascript"
+		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

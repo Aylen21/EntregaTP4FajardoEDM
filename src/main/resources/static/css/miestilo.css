@@ -1,0 +1,181 @@
+
+.bodycliente{
+	background-image: url("https://wallpaperaccess.com/full/1440291.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	}
+.bodycliente h1{
+	text-align: center;
+    color: #fff;
+    font-size: 40px;
+}
+.bodycliente h3{
+	
+    color: #fff;
+    font-size: 30px;
+}
+.bodycliente form{
+	 color: #fff;
+}
+
+.bodycliente form input[type="text"],
+.bodycliente form input[type="email"],
+.bodycliente form input[type="number"],
+.bodycliente form input[type="date"],
+.bodycliente form input[type="password"]{
+	border: none;
+	border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.bodycliente form select{
+    border: none;
+	border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.bodycliente form button[type="submit"]{
+	background: rgb(204, 0, 0);
+	border-color:  rgb(186, 189, 182);
+}
+.bodycliente td{
+	color: #fff;
+}
+
+.titulotabla{	
+	padding: 8px 16px 8px 16px;
+	text-align: center;
+}
+
+
+
+
+.navmio{
+	background:rgb(204, 0, 0);	
+	padding: 8px 16px 8px 16px;
+	text-align: center;
+	color: #fff;
+	
+}
+.bodyhome{
+	
+	background-image: url("https://i.pinimg.com/originals/2c/db/63/2cdb63136705825a5787d346887fd7a0.jpg"); 
+	background-size: 100vw 100vh;
+	background-attachment: fixed;
+	margin:0;
+}
+.form{
+	    width: 360px;
+		margin: auto;
+		color: #fff;
+		background: #000;
+		top:50%;
+		left: 27%;
+		position: absolute;
+		transform: translate(-50%,-50%);
+		box-sizing: border-box;
+		padding: 70px 30px;
+}
+@media (max-width:480px){
+	.form{
+		width:100%
+	}
+}
+
+.form .avatar{
+	width: 120px;
+	height: 120px;
+	border-radius: 20%;
+	position: absolute;
+	top: -50px;
+	left: calc(50% - 50px);
+	
+}
+.form h1{
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 25px;
+}
+.form label{
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	display: block;
+	
+}
+.form input{
+	width: 100%;
+	margin-bottom: 20px;
+	}
+.form input[type="text"],
+.form input[type="password"]{
+	border: none;
+	border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 40px;		
+	background: rgb(204, 0, 0);
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+}
+.form a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height:20px;
+	color:darkgrey;
+}
+.form a:hover{ 
+	color: #fff;
+
+	}
+	.bodyproducto {
+	background-image: url("https://p4.wallpaperbetter.com/wallpaper/448/3/766/naruto-red-symbol-uchiha-clan-white-hd-wallpaper-preview.jpg");
+	background-size: 100vw 100vh;
+	background-attachment: fixed;
+	margin:0;
+	}
+.bodyproducto h1{
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 35px;
+	color:#fff;
+}
+
+.bodyproducto form input[type="text"],
+.bodyproducto form input[type="number"]{
+	border: none;
+	border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.bodyproducto form button[type="submit"]{
+	background: rgb(204, 0, 0);
+	border-color:  rgb(186, 189, 182);
+}
+.bodyproducto td{
+	color: #fff;
+}
+.bodyproducto form{
+	 color: #fff;
+}
