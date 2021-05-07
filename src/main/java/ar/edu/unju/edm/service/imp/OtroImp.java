@@ -30,4 +30,16 @@ public class OtroImp implements IClienteService{
 		return null;
 	}
 
+	@Override
+	public Cliente encontrarUnCliente(int dni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void modificarCliente(Cliente clienteModificado) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
