@@ -21,6 +21,7 @@ public class ProductoController {
 	@GetMapping("/producto")
 	public String cargarProducto(Model model) {
 		model.addAttribute("unProducto", iProductoService.obtenerNuevoProducto());
+		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
 		return("producto");
 	}
 	
