@@ -15,6 +15,7 @@ public interface IProductoService {
 	public void eliminarProducto(Producto productoAEliminar);
 	public Producto obtenerUnProducto(String nombreProducto);
 	public List<Producto> obtenerTodosProductos();
+	public Producto encontradoUnProducto(int codigo);
     public Producto obtenerNuevoProducto();
     public Producto obtenerUltimoProducto();
     

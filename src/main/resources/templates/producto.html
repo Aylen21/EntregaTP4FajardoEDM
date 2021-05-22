@@ -15,7 +15,7 @@
 	<br>
 	<h1>FORMULARIO DE CARGA DE PRODUCTO</h1>
 	<br>
-	<form id="formProducto" th:object="${unProducto}" th:action="${producto}" method="post">
+	<form id="formProducto" th:object="${unProducto}" th:action="${editMode}?@{/producto/modificar}:@{/producto}" method="post">
 		<div class="form-group row">
 			<label for="codigo" class="col-sm-2 col-form-label">Codigo</label>
 			<div class="col-sm-10">
@@ -48,7 +48,8 @@
 		</div>
 <br>
 		<div class="boton">
-			<button type="submit" class="btn btn-danger btn-block" value="Agregar">Agregar</button>
+			<!--<button type="submit" class="btn btn-danger btn-block" value="Agregar">Agregar</button>-->
+			 <input type="submit" class="btn btn-danger btn-block"  th:value="${editMode}?'Modificar Producto':'Crear Producto'">
 		</div>
 
 	</form>
@@ -64,6 +65,7 @@
 				<th>Precio</th>
 				<th>Marca</th>
 				<th>Stock</th>
+				<th>Edicion</th>
 			</tr>
 			
 			</thead>
@@ -76,6 +78,7 @@
 				<td th:text="${p.precio}"></td>
 				<td th:text="${p.marca}"></td>
 				<td th:text="${p.stock}"></td>
+				<td><a href="#" th:href="@{'/producto/editar/'+${p.codProducto}}"><i class="fa fa-edit"></i></a>
 			</tr>
 		</table>
 	</div>

@@ -46,6 +46,12 @@ public class ProductoServiceImpl implements IProductoService{
 	@Override
 	public void modificarProducto(Producto productoAModificar) {
 		// TODO Auto-generated method stub
+
+		for (int i = 0; i <  listaDeProductos.size(); i++){
+		    if ( listaDeProductos.get(i).getCodProducto() == productoAModificar.getCodProducto()) {
+		    	listaDeProductos.set(i , productoAModificar);
+		    }
+		}
 		
 	}
 
@@ -79,5 +85,17 @@ public class ProductoServiceImpl implements IProductoService{
 		int i = listaDeProductos.size() - 1;
 		return listaDeProductos.get(i);
 	}
-//f
+
+	@Override
+	public Producto encontradoUnProducto(int codigo) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < listaDeProductos.size(); i++){
+		    if (listaDeProductos.get(i).getCodProducto() == codigo) {
+		    	unProducto = listaDeProductos.get(i);
+		    }
+		}
+	
+		return unProducto;
+	}
+	
 }

@@ -4,23 +4,25 @@ import java.time.LocalDate;
 //import java.util.Date;
 import java.time.Period;
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class Cliente {
+	
 	private int nroDocumento;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
-	
-	
 	private String tipoDocumento;
 	private int codigoAreaTelefono;
 	private int numTelefono;
 	private String email;
 	private String password;
 	private String nombreApellido;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
 	
