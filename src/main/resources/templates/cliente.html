@@ -127,8 +127,7 @@
 						<td th:text="${cli.getTiempoDesdeUltimaCompra}+' '+${cli.getTiempoHastaCumple}"></td>
 						<td><a href="#" th:href="@{'/cliente/editar/'+${cli.nroDocumento}}"><i
 									class="fa fa-edit"></i></a>
-							<a th:onclick="'javascript:confirmarEliminar(\''+${cli.nroDocumento}+'\');'"><i
-									class="fa fa-trash-alt"></i></a>
+							<a th:onclick="'javascript:confirmarEliminar(\''+${cli.nroDocumento}+'\');'"><i class="fas fa-trash"></i></a>
 						</td>
 					</tr>
 				</table>

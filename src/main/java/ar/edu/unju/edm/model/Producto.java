@@ -10,7 +10,7 @@ public class Producto {
 	private double precio;
 	private String marca;
 	private int stock;
-	//agregar descripcion
+	private String descripcion;
 		
 	public Producto() {
 		// TODO Auto-generated constructor stub
@@ -54,6 +54,14 @@ public class Producto {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
 }
