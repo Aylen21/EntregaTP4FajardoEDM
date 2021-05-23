@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.edm.model.Producto;
 import ar.edu.unju.edm.service.IProductoService;
+
 @Service
 public class ProductoServiceImpl implements IProductoService{
+	
 	private static final Log LOGGER = LogFactory.getLog(ProductoServiceImpl.class);
 	//como se hace la solucion del problema
 		//guardar en Array
@@ -28,19 +30,18 @@ public class ProductoServiceImpl implements IProductoService{
 	@Override
 	public void guardarProducto(Producto unProducto) {
 		// TODO Auto-generated method stub
+		System.out.println(unProducto.getNombre());
+		listaDeProductos.add(unProducto);
 		
-		//esta línea la puse solo para que escriba en la consola el nombre del producto que llega
-				//una línea que me sirve a mí de control
-				//un log artesanal
-				System.out.println(unProducto.getNombre());
-				listaDeProductos.add(unProducto);
-				
-				//otra línea de control
-				//quiero saber cuántos elementos hay en el arreglo
-				System.out.println(listaDeProductos.size());
-				
-				LOGGER.info("METHOD: ingresando a Guardar Producto");
-				LOGGER.info("RESULT: guardado " + listaDeProductos.get(listaDeProductos.size()-1).getNombre());
+		//otra línea de control
+		//quiero saber cuántos elementos hay en el arreglo
+		System.out.println(listaDeProductos.size());
+		
+		LOGGER.info("METHOD: ingresando a Guardar Producto");
+		LOGGER.info("RESULT: guardado " + listaDeProductos.get(listaDeProductos.size()-1).getNombre());
+		
+		
+	
 	}
 
 	@Override
@@ -55,11 +56,6 @@ public class ProductoServiceImpl implements IProductoService{
 		
 	}
 
-	@Override
-	public void eliminarProducto(Producto productoAEliminar) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Producto obtenerUnProducto(String nombreProducto) {
@@ -78,14 +74,11 @@ public class ProductoServiceImpl implements IProductoService{
 		// TODO Auto-generated method stub
 		return unProducto;
 	}
-
 	@Override
-	public Producto obtenerUltimoProducto() {
+	public Object crearProducto() {
 		// TODO Auto-generated method stub
-		int i = listaDeProductos.size() - 1;
-		return listaDeProductos.get(i);
+		return unProducto;
 	}
-
 	@Override
 	public Producto encontradoUnProducto(int codigo) {
 		// TODO Auto-generated method stub
@@ -97,5 +90,20 @@ public class ProductoServiceImpl implements IProductoService{
 	
 		return unProducto;
 	}
+
+
+
+	@Override
+	public void eliminarProducto(int id) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i <  listaDeProductos.size(); i++){
+		    if ( listaDeProductos.get(i).getCodProducto() == id)  {
+		    	listaDeProductos.remove(i);
+		    }
+		}
+	}
+
 	
+	
+
 }

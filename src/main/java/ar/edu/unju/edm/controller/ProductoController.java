@@ -1,7 +1,5 @@
 package ar.edu.unju.edm.controller;
 
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,23 +7,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import ar.edu.unju.edm.model.Cliente;
 import ar.edu.unju.edm.model.Producto;
 import ar.edu.unju.edm.service.IProductoService;
 
 @Controller
 public class ProductoController {
-	private static final Log AYLEN = LogFactory.getLog(ProductoController.class);;
 	
 	@Autowired 
 	IProductoService iProductoService;
-	@GetMapping("/producto")
+	
+	//mostrar
+	@GetMapping("/producto/mostrar")
 	public String cargarProducto(Model model) {
 		model.addAttribute("unProducto", iProductoService.obtenerNuevoProducto());
 		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
 		return("producto");
 	}
+	
+	
 	@GetMapping("/producto/editar/{codProducto}")
 	public String editarProducto(Model model, @PathVariable(name="codProducto") int codigo) throws Exception {
 		try {
@@ -35,22 +34,22 @@ public class ProductoController {
 		}
 		catch (Exception e) {
 			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
-			model.addAttribute("unProducto",iProductoService.obtenerNuevoProducto());
+			model.addAttribute("unProducto",iProductoService.crearProducto());
 			model.addAttribute("editMode", "false");
 		}	 
 		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
 		return("producto");
 	}
 	
-	@PostMapping("/producto")
+	
+	//Guardar
+	@PostMapping("/producto/guardar")
 	public String guardarNuevoProducto(@ModelAttribute("unProducto") Producto nuevoProducto, Model model) {
     iProductoService.guardarProducto(nuevoProducto);
-    
   //mostrar el listado de producto luego de la carga de un producto
   		System.out.println(iProductoService.obtenerTodosProductos().get(0).getMarca());
-  		model.addAttribute("productos", iProductoService.obtenerTodosProductos());
-  		AYLEN.error("solo de prueba");
-  		return "producto";
+  		
+  		return "redirect:/producto/mostrar";
  
 }
 
@@ -72,10 +71,17 @@ public class ProductoController {
 		return ("producto");
 	
 	}
-	@GetMapping("/ultimo")
-	public String cargarUltimoProducto(Model model) {
-		model.addAttribute("ultimoProducto", iProductoService.obtenerUltimoProducto());
-		return("mostrar-ultimo");
+
+	@GetMapping("/producto/eliminarProducto/{id}")
+	public String eliminarProducto(Model model, @PathVariable(name="id") int id) {
+		try {			
+			iProductoService.eliminarProducto(id);			
+		}
+		catch(Exception e){
+			model.addAttribute("listErrorMessage",e.getMessage());
+		}			
+		return "redirect:/producto/mostrar";
+	
 	}
 	
 	@GetMapping("/volver")

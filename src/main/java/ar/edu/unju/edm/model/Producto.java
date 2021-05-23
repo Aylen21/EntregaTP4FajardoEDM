@@ -10,6 +10,7 @@ public class Producto {
 	private double precio;
 	private String marca;
 	private int stock;
+	//agregar descripcion
 		
 	public Producto() {
 		// TODO Auto-generated constructor stub

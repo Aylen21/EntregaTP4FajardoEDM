@@ -42,4 +42,10 @@ public class OtroImp implements IClienteService{
 		
 	}
 
+	@Override
+	public void eliminarCliente(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
