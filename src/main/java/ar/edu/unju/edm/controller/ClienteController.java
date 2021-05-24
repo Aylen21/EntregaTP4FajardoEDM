@@ -22,7 +22,7 @@ public class ClienteController {
 	private static final Log LOGGER = LogFactory.getLog(ClienteController.class);
 	
 	@Autowired
-	@Qualifier("unImp")
+	@Qualifier("impmysql")
 	IClienteService clienteService;
 	
 	@GetMapping("/cliente/mostrar")
