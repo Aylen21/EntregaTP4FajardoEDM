@@ -15,7 +15,7 @@ import ar.edu.unju.edm.service.IProductoService;
 public class ProductoController {
 	
 	@Autowired 
-	@Qualifier("unImp")
+	@Qualifier("impmysqlproducto")
 	IProductoService iProductoService;
 	
 	//mostrar
@@ -28,7 +28,7 @@ public class ProductoController {
 	
 	
 	@GetMapping("/producto/editar/{codProducto}")
-	public String editarProducto(Model model, @PathVariable(name="codProducto") int codigo) throws Exception {
+	public String editarProducto(Model model, @PathVariable(name="codProducto") int codigo) {
 		try {
 			Producto productoEncontrado =  iProductoService.encontradoUnProducto(codigo);
 			model.addAttribute("unProducto", productoEncontrado);	
