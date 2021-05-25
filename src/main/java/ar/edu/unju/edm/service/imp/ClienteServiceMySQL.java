@@ -36,18 +36,30 @@ public class ClienteServiceMySQL implements IClienteService{
 		// TODO Auto-generated method stub
 		return (List<Cliente>) iClienteDAO.findAll();
 	}
-
+	
 	@Override
 	public Cliente encontrarUnCliente(int dni) throws Exception {
 		// TODO Auto-generated method stub
-		
-		return iClienteDAO.findById(dni).orElseThrow(()->new Exception("El cliente NO existe"));
+		return iClienteDAO.findByNroDocumento(dni).orElseThrow(()->new Exception("El cliente NO existe"));
 	}
 
 	@Override
-	public void modificarCliente(Cliente clienteModificado) {
+	public void modificarCliente(Cliente clienteModificado) throws Exception{
 		// TODO Auto-generated method stub
-		
+				Cliente clienteAModificar = iClienteDAO.findByNroDocumento(clienteModificado.getNroDocumento()).orElseThrow(()->new Exception("El Cliente no fue encontrado"));
+				cambiarCliente(clienteModificado, clienteAModificar);
+				iClienteDAO.save(clienteAModificar);
+	}
+
+	private void cambiarCliente(Cliente clienteModificado, Cliente clienteAModificar) {
+		// TODO Auto-generated method stub
+		clienteAModificar.setNombreApellido(clienteModificado.getNombreApellido());
+		clienteAModificar.setNroDocumento(clienteModificado.getNroDocumento());
+		clienteAModificar.setTipoDocumento(clienteModificado.getTipoDocumento());
+		clienteAModificar.setFechaNacimiento(clienteModificado.getFechaNacimiento());
+		clienteAModificar.setCodigoAreaTelefono(clienteModificado.getCodigoAreaTelefono());
+		clienteAModificar.setNumTelefono(clienteModificado.getNumTelefono());
+		clienteAModificar.setEmail(clienteModificado.getEmail());
 	}
 
 	@Override

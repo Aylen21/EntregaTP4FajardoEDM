@@ -95,7 +95,7 @@
 			<div class="table-responsive">
 				<table class="table">
 					<thead class="thead-dark">
-						<tr>
+					
 							<th>Tipo</th>
 							<th>Num Doc</th>
 							<th>Nombre y Apellido</th>
@@ -114,6 +114,7 @@
 						<td colspan="3"> No hay clientes en el listado </td>
 					</tr>
 					<tr th:each="cli : ${clientes}">
+					   
 						<td th:text="${cli.tipoDocumento}"></td>
 						<td th:text="${cli.nroDocumento}"></td>
 						<td th:text="${cli.nombreApellido}"></td>

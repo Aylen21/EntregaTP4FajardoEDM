@@ -3,12 +3,15 @@ package ar.edu.unju.edm.controller;
 import java.time.LocalDate;
 import java.time.Period;
 
+import javax.validation.Valid;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +37,9 @@ public class ClienteController {
 	@GetMapping("/cliente/editar/{nroDocumento}")
 	public String editarCliente(Model model, @PathVariable(name="nroDocumento") int dni) throws Exception {
 		try {
+			LOGGER.info("METHOD: ingresando editar modificar, antes de traer el Cliente");
 			Cliente clienteEncontrado = clienteService.encontrarUnCliente(dni);
+			LOGGER.info("METHOD: ingresando editar modificar, traje el Cliente"+clienteEncontrado.getNroDocumento());
 			model.addAttribute("unCliente", clienteEncontrado);	
 			model.addAttribute("editMode", "true");
 		}
@@ -42,9 +47,9 @@ public class ClienteController {
 			model.addAttribute("formUsuarioErrorMessage",e.getMessage());
 			model.addAttribute("unCliente", clienteService.crearCliente());
 			model.addAttribute("editMode", "false");
-		}
-		model.addAttribute("clientes", clienteService.obtenerTodosClientes());
-		return("cliente");
+		}				
+		model.addAttribute("clientes", clienteService.obtenerTodosClientes());		
+		return "cliente";
 	}
 	
 	@PostMapping("/cliente/guardar")
