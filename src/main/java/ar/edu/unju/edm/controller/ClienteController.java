@@ -52,15 +52,33 @@ public class ClienteController {
 		return "cliente";
 	}
 	
+	//@PostMapping("/cliente/guardar")
+	//public String guardarNuevoCliente(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {
+		//LOGGER.info("METHOD: ingresando el metodo Guardar");
+		//clienteService.guardarCliente(nuevoCliente);
+		//LOGGER.info("Tamaño del Listado: " + clienteService.obtenerTodosClientes().size());
+		//trabajarConFechas();
+		//return "redirect:/cliente/mostrar";
+	//}
 	@PostMapping("/cliente/guardar")
-	public String guardarNuevoCliente(@ModelAttribute("unCliente") Cliente nuevoCliente, Model model) {
-		LOGGER.info("METHOD: ingresando el metodo Guardar");
-		clienteService.guardarCliente(nuevoCliente);
-		LOGGER.info("Tamaño del Listado: " + clienteService.obtenerTodosClientes().size());
-		trabajarConFechas();
-		return "redirect:/cliente/mostrar";
+	public String guardarNuevoCliente(@Valid @ModelAttribute("unCliente") Cliente nuevoCliente, BindingResult resultado ,Model model) {
+		
+		if (resultado.hasErrors()) 
+		{
+			model.addAttribute("unCliente", nuevoCliente);
+			model.addAttribute("clientes", clienteService.obtenerTodosClientes());
+			return("cliente");
+		}
+		else 
+		{
+			//deberia tener un try por si ocurre algún error
+			LOGGER.info("METHOD: ingresando el metodo Guardar");
+			clienteService.guardarCliente(nuevoCliente);		
+			LOGGER.info("Tamaño del Listado: "+ clienteService.obtenerTodosClientes().size());
+			trabajarConFechas();
+			return "redirect:/cliente/mostrar";
+		}
 	}
-	
 	
 	@PostMapping("/cliente/modificar")
 	public String modificarCliente(@ModelAttribute("unCliente") Cliente clienteModificado, Model model) {

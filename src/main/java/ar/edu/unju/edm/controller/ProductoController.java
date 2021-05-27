@@ -1,9 +1,14 @@
 package ar.edu.unju.edm.controller;
 
+
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,15 +51,25 @@ public class ProductoController {
 	
 	//Guardar
 	@PostMapping("/producto/guardar")
-	public String guardarNuevoProducto(@ModelAttribute("unProducto") Producto nuevoProducto, Model model) {
-    iProductoService.guardarProducto(nuevoProducto);
+	public String guardarNuevoProducto(@Valid @ModelAttribute("unProducto") Producto nuevoProducto,BindingResult resultado , Model model) {
+    //iProductoService.guardarProducto(nuevoProducto);
   //mostrar el listado de producto luego de la carga de un producto
-  		System.out.println(iProductoService.obtenerTodosProductos().get(0).getMarca());
-  		
-  		return "redirect:/producto/mostrar";
+  		//System.out.println(iProductoService.obtenerTodosProductos().get(0).getMarca());
+  	//	return "redirect:/producto/mostrar";
  
-}
-
+          if (resultado.hasErrors())
+          {
+        	model.addAttribute("unProducto", nuevoProducto);
+  			model.addAttribute("productos", iProductoService.obtenerTodosProductos());
+  			return("producto");
+          }
+          else
+          {
+        	  iProductoService.guardarProducto(nuevoProducto);		
+        	  return "redirect:/producto/mostrar";
+          }
+          
+	}
 	@PostMapping("/producto/modificar")
 	public String modificarProducto(@ModelAttribute("unProducto")Producto productoAModificar, Model model) {
 		try {

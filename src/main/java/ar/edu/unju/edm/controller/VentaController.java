@@ -13,7 +13,7 @@ import ar.edu.unju.edm.service.IProductoService;
 public class VentaController {
 	
 	@Autowired 
-	@Qualifier("unImp")
+	@Qualifier("impmysqlproducto")
 	IProductoService iProductoService;
 	
 	@GetMapping("/producto/ventas")

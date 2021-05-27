@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+
 
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,7 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer idProducto;
+	@Min(1)
 	@Column
 	private int codProducto;
 	@Column
